@@ -1,34 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thyeres Crates</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Thyeres Crates - Black Market</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script src="assets/js/script.js" defer></script>
 </head>
 <body>
     <header class="site-header">
-        <div class="logo">
-            <img src="assets/img/logo.png" alt="">
-        </div>
+        <a href="#" class="logo" aria-label="Thyeres Crates">
+            <img src="assets/img/logo.png" alt="Thyeres Crates" class="logo-image">
+        </a>
+        <nav class="navbar">
+            <ul>
+                <li><a href="#caixas">Caixas</a></li>
+                <li><a href="#upgrader">Upgrader</a></li>
+                <li><a href="#exchanger">Trade</a></li>
+            </ul>
+        </nav>
     </header>
-    <div class="subtitle">
-        O melhor site de case de skins de CS!
+
+    <div class="user-panel">
+        <div class="sub-titulo">As melhores cases do CS2/CSGO Brasileiro.</div>
+        
+        <div class="balance-display" id="user-balance">Créditos: R$5000</div>
+        
+        <a href="#" class="steambutton">
+            <span>Logue com a Steam</span>
+            <div class="icon">
+                <i class="fa-brands fa-steam fa-2x1"></i>
+            </div>
+        </a>
     </div>
 
-    <nav class="navbar">
-        <ul>
-            <li><a href="#caixas">Caixas</a></li>
-            <li><a href="#upgrader">Upgrader</a></li>
-            <li><a href="#casebattle">Case Battle</a></li>
-            <li><a href="#exchanger">Exchanger</a></li>
-        </ul>
-    </nav>
+    <div class="roulette-wrapper">
+        <div class="roulette-window">
+            <div class="roulette-track" id="track">
+            </div>
+        </div>
+    </div>
 
-    <a href="https://steamcommunity.com/" class="steambutton"><span>Logue com a Steam</span><div class="icon">
-		<i class="fa-brands fa-steam fa-2xl fa-canvas-square"></i>
-	</div></a>
+    <div class="case-controls">
+        <button class="golden-button" id="open-btn">GIRAR ROLETA (R$100)</button>
+    </div>
 
+    <div class="overlay" id="overlay"></div>
+    <div class="modal" id="result-modal">
+        <p>Você ganhou:</p>
+        <div class="modal-item-name" id="modal-item"></div>
+        <button class="modal-btn" onclick="closeModal()">Guardar no Inventário</button>
+    </div>
 </body>
 </html>
