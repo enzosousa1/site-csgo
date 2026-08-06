@@ -22,29 +22,163 @@
         </nav>
     </header>
 
-    <div class="user-panel">
-        <div class="sub-titulo">As melhores cases do CS2/CSGO Brasileiro.</div>
-        
-        <div class="balance-display" id="user-balance">Créditos: R$5000</div>
-        
-        <a href="#" class="steambutton">
-            <span>Logue com a Steam</span>
-            <div class="icon">
-                <i class="fa-brands fa-steam fa-2x1"></i>
-            </div>
-        </a>
-    </div>
+    <main class="dashboard-layout">
+        <section class="content-panel">
+            <section class="cases-section" id="caixas">
+                <div class="case-card">
+                    <div class="case-header">
+                        <i class="fa-regular fa-heart favorite-icon"></i>
+                        <h3>Daily Case</h3>
+                    </div>
+                    <img src="assets/img/container/daily-case.webp" alt="Daily Case" class="case-image">
+                    <div class="case-footer-wrapper">
+                        <div class="case-footer daily-timer">23:53:59</div>
+                    </div>
+                </div>
 
-    <div class="roulette-wrapper">
-        <div class="roulette-window">
-            <div class="roulette-track" id="track">
-            </div>
-        </div>
-    </div>
+                <div class="case-card">
+                    <div class="case-header">
+                        <h3>Low Case</h3>
+                    </div>
+                    <img src="assets/img/container/low-case.webp" alt="Low Case" class="case-image">
+                    <div class="case-footer-wrapper">
+                        <div class="case-footer price-tag">R$1.80</div>
+                    </div>
+                </div>
 
-    <div class="case-controls">
-        <button class="golden-button" id="open-btn">GIRAR ROLETA (R$100)</button>
-    </div>
+                <div class="case-card">
+                    <div class="case-header">
+                        <h3>Indirect Case</h3>
+                    </div>
+                    <img src="assets/img/container/indirect-case.webp" alt="Indirect Case" class="case-image">
+                    <div class="case-footer-wrapper">
+                        <div class="case-footer price-tag">R$3.00</div>
+                    </div>
+                </div>
+
+                <div class="case-card">
+                    <div class="case-header">
+                        <h3>Medium Case</h3>
+                    </div>
+                    <img src="assets/img/container/gemstone-case.webp" alt="Medium Case" class="case-image">
+                    <div class="case-footer-wrapper">
+                        <div class="case-footer price-tag">R$4.50</div>
+                    </div>
+                </div>
+
+                <div class="case-card">
+                    <div class="case-header">
+                        <h3>Ultra Case</h3>
+                    </div>
+                    <img src="assets/img/container/gemstone-case.webp" alt="Ultra Case" class="case-image">
+                    <div class="case-footer-wrapper">
+                        <div class="case-footer price-tag">R$6.00</div>
+                    </div>
+                </div>
+
+                <div class="case-card">
+                    <div class="case-header">
+                        <h3>Ammo Case</h3>
+                    </div>
+                    <img src="assets/img/container/daily-case.webp" alt="Ammo Case" class="case-image">
+                    <div class="case-footer-wrapper">
+                        <div class="case-footer price-tag">R$6.30</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="case-detail-screen">
+                <div class="case-detail-header">
+                    <button class="back-link">&#9664; Voltar às caixas</button>
+                    <div class="case-detail-title">
+                        <span class="title-icon"><i class="fa-regular fa-heart"></i></span>
+                        <span>Gemstone Case</span>
+                    </div>
+                    <div class="case-detail-price">R$2400.00</div>
+                </div>
+
+                <div class="case-preview-strip">
+                    <div class="preview-item">
+                        <img src="assets/img/skins/ak47.webp" alt="Preview item 1">
+                        <div class="preview-name">Marble Fade</div>
+                    </div>
+                    <div class="preview-item">
+                        <img src="assets/img/skins/awp.png" alt="Preview item 2">
+                        <div class="preview-name">Gamma Doppler</div>
+                    </div>
+                    <div class="preview-item">
+                        <img src="assets/img/skins/usp.png" alt="Preview item 3">
+                        <div class="preview-name">Gamma Doppler</div>
+                    </div>
+                    <div class="preview-item">
+                        <img src="assets/img/skins/m4a1.png" alt="Preview item 4">
+                        <div class="preview-name">Marble Fade</div>
+                    </div>
+                    <div class="preview-item">
+                        <img src="assets/img/skins/zeus.png" alt="Preview item 5">
+                        <div class="preview-name">Gamma Doppler</div>
+                    </div>
+                </div>
+
+                <div class="case-detail-controls">
+                    <button class="golden-button" id="open-btn">Abrir por R$2400.00</button>
+                    <div class="case-action-icons">
+                        <button class="mini-icon"><i class="fa-regular fa-heart"></i></button>
+                        <button class="mini-icon"><i class="fa-solid fa-volume-high"></i></button>
+                        <button class="mini-icon"><i class="fa-solid fa-shuffle"></i></button>
+                        <button class="mini-icon"><i class="fa-solid fa-gear"></i></button>
+                    </div>
+                </div>
+
+                <div class="case-contents-title">Conteúdo da caixa</div>
+                <div class="case-contents-grid">
+                    <article class="content-card">
+                        <div class="content-chip">0.025%</div>
+                        <img src="assets/img/skins/ak47.webp" alt="Item 1">
+                        <h4>M9 Bayonet | Doppler Ruby</h4>
+                    </article>
+                    <article class="content-card">
+                        <div class="content-chip">0.025%</div>
+                        <img src="assets/img/skins/awp.png" alt="Item 2">
+                        <h4>Butterfly Knife | Gamma Doppler Emerald</h4>
+                    </article>
+                    <article class="content-card">
+                        <div class="content-chip">0.025%</div>
+                        <img src="assets/img/skins/usp.png" alt="Item 3">
+                        <h4>Karambit | Gamma Doppler Emerald</h4>
+                    </article>
+                    <article class="content-card">
+                        <div class="content-chip">0.113%</div>
+                        <img src="assets/img/skins/m4a1.png" alt="Item 4">
+                        <h4>Talon Knife | Doppler Sapphire</h4>
+                    </article>
+                </div>
+            </section>
+        </section>
+
+        <aside class="sidebar-panel">
+            <div class="user-panel">
+                <div class="sub-titulo">As melhores cases do CS2/CSGO Brasileiro.</div>
+                <div class="balance-display" id="user-balance">Créditos: R$5000</div>
+                <a href="#exchanger" class="steambutton">
+                    <span>Logue com a Steam</span>
+                    <div class="icon">
+                        <i class="fa-brands fa-steam fa-2x"></i>
+                    </div>
+                </a>
+            </div>
+
+            <section class="panel-section" id="upgrader">
+                <h2>Upgrader</h2>
+                <p>Próximo upgrade em desenvolvimento para melhorar o valor das skins.</p>
+            </section>
+
+            <section class="panel-section" id="exchanger">
+                <h2>Trade</h2>
+                <p>Área de troca e conversão com itens selecionados no inventário.</p>
+            </section>
+        </aside>
+    </main>
 
     <div class="overlay" id="overlay"></div>
     <div class="modal" id="result-modal">
