@@ -245,12 +245,56 @@ body {
 }
 
 .roulette-window {
+    position: relative;
     width: min(900px, 92vw);
     overflow: hidden;
     border: 1px solid rgba(78, 144, 255, 0.5);
     border-radius: 14px;
     background: linear-gradient(180deg, rgba(17, 24, 39, 0.9), rgba(10, 16, 30, 0.95));
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+}
+
+.roulette-cursor {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        #ffd700 15%,
+        #ffd700 85%,
+        transparent 100%
+    );
+    z-index: 10;
+    pointer-events: none;
+    box-shadow: 0 0 12px rgba(255, 215, 0, 0.8);
+}
+
+.roulette-cursor::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 14px solid #ffd700;
+    filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.9));
+}
+
+.roulette-cursor::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 14px solid #ffd700;
+    filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.9));
 }
 
 .roulette-track {

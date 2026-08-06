@@ -8,6 +8,58 @@ const skins = [
     { name: 'UMP45 | Motorized', rarity: 'contraband', color: 'gold', icon: 'skins/ump45.png', weight: 0.25 }
 ];
 
+const casePreviews = {
+    'Daily Case': [
+        { icon: 'skins/daily-case/AK-47_Aquamarine_Revenge.webp', name: 'AK-47 | Aquamarine Revenge' },
+        { icon: 'skins/daily-case/Glock-18_Water_Elemental.webp', name: 'Glock-18 | Water Elemental' },
+        { icon: 'skins/daily-case/M4A1-S_Cyrex.webp', name: 'M4A1-S | Cyrex' },
+        { icon: 'skins/daily-case/AWP_Hyper_Beast.webp', name: 'AWP | Hyper Beast' },
+        { icon: 'skins/daily-case/Five-SeveN_Violent_Daimyo.webp', name: 'Five-SeveN | Violent Daimyo' }
+    ],
+    'Gemstone Case': [
+        { icon: 'skins/gemstone-case/Bayonet_Gamma_Doppler.webp', name: 'Bayonet | Gamma Doppler' },
+        { icon: 'skins/gemstone-case/Karambit_GammaDopplerEmerald.webp', name: 'Karambit | Gamma Doppler Emerald' },
+        { icon: 'skins/gemstone-case/FalchionKnife_MarbleFade.webp', name: 'Falchion Knife | Marble Fade' },
+        { icon: 'skins/gemstone-case/ButterflyKnife_GammaDopplerEmerald.webp', name: 'Butterfly Knife | Gamma Doppler Emerald' },
+        { icon: 'skins/gemstone-case/ShadowDaggers_MarbleFade.webp', name: 'Shadow Daggers | Marble Fade' }
+    ],
+    'Low Case': [
+        { icon: 'skins/ak47.webp', name: 'AK-47 | Aquecimento de Aço' },
+        { icon: 'skins/awp.png', name: 'AWP | Lighting Strike' },
+        { icon: 'skins/usp.png', name: 'USP | Jawbreaker' },
+        { icon: 'skins/m4a1.png', name: 'M4A1-S | Black Lotus' },
+        { icon: 'skins/zeus.png', name: 'Zeus-X27 | Olympus' }
+    ],
+    'Indirect Case': [
+        { icon: 'skins/ak47.webp', name: 'AK-47 | Aquecimento de Aço' },
+        { icon: 'skins/awp.png', name: 'AWP | Lighting Strike' },
+        { icon: 'skins/usp.png', name: 'USP | Jawbreaker' },
+        { icon: 'skins/m4a1.png', name: 'M4A1-S | Black Lotus' },
+        { icon: 'skins/zeus.png', name: 'Zeus-X27 | Olympus' }
+    ],
+    'Medium Case': [
+        { icon: 'skins/ak47.webp', name: 'AK-47 | Aquecimento de Aço' },
+        { icon: 'skins/awp.png', name: 'AWP | Lighting Strike' },
+        { icon: 'skins/usp.png', name: 'USP | Jawbreaker' },
+        { icon: 'skins/m4a1.png', name: 'M4A1-S | Black Lotus' },
+        { icon: 'skins/zeus.png', name: 'Zeus-X27 | Olympus' }
+    ],
+    'Ultra Case': [
+        { icon: 'skins/ak47.webp', name: 'AK-47 | Aquecimento de Aço' },
+        { icon: 'skins/awp.png', name: 'AWP | Lighting Strike' },
+        { icon: 'skins/usp.png', name: 'USP | Jawbreaker' },
+        { icon: 'skins/m4a1.png', name: 'M4A1-S | Black Lotus' },
+        { icon: 'skins/zeus.png', name: 'Zeus-X27 | Olympus' }
+    ],
+    'Ammo Case': [
+        { icon: 'skins/ak47.webp', name: 'AK-47 | Aquecimento de Aço' },
+        { icon: 'skins/awp.png', name: 'AWP | Lighting Strike' },
+        { icon: 'skins/usp.png', name: 'USP | Jawbreaker' },
+        { icon: 'skins/m4a1.png', name: 'M4A1-S | Black Lotus' },
+        { icon: 'skins/zeus.png', name: 'Zeus-X27 | Olympus' }
+    ]
+};
+
 const totalWeight = skins.reduce((sum, skin) => sum + skin.weight, 0);
 
 const generateRandomSkin = () => {
@@ -37,6 +89,7 @@ const openBtn = document.getElementById('open-btn');
 const detailTitle = document.querySelector('.case-detail-title span:last-child');
 const detailPrice = document.querySelector('.case-detail-price');
 const caseCards = Array.from(document.querySelectorAll('.case-card'));
+const previewStrip = document.querySelector('.case-preview-strip');
 
 let track = null;
 
@@ -48,6 +101,9 @@ function ensureRoulette() {
     if (!rouletteWindow) {
         rouletteWindow = document.createElement('div');
         rouletteWindow.className = 'roulette-window';
+        const cursor = document.createElement('div');
+        cursor.className = 'roulette-cursor';
+        rouletteWindow.appendChild(cursor);
 
         track = document.createElement('div');
         track.className = 'roulette-track';
@@ -58,6 +114,11 @@ function ensureRoulette() {
         detailScreen.insertBefore(rouletteWindow, controls);
     } else {
         track = rouletteWindow.querySelector('#track');
+        if (!rouletteWindow.querySelector('.roulette-cursor')) {
+            const cursor = document.createElement('div');
+            cursor.className = 'roulette-cursor';
+            rouletteWindow.prepend(cursor);
+        }
     }
 }
 
@@ -84,6 +145,19 @@ function createItemElement(skin) {
     return div;
 }
 
+function updateCasePreview(caseName) {
+    if (!previewStrip) return;
+
+    const previews = casePreviews[caseName] || casePreviews['Low Case'];
+
+    previewStrip.innerHTML = previews.map((item) => `
+        <div class="preview-item">
+            <img src="assets/img/${item.icon}" alt="${item.name}">
+            <div class="preview-name">${item.name}</div>
+        </div>
+    `).join('');
+}
+
 function syncActiveCase(card) {
     caseCards.forEach((item) => item.classList.remove('is-active'));
     card.classList.add('is-active');
@@ -100,6 +174,8 @@ function syncActiveCase(card) {
     if (openBtn) {
         openBtn.textContent = `Abrir por ${priceTag}`;
     }
+    updateCasePreview(title);
+    initRoulette();
 }
 
 function bindCases() {
@@ -148,7 +224,10 @@ if (openBtn) {
 
         const trackContainerWidth = document.querySelector('.roulette-window')?.offsetWidth || 900;
         const centerOffset = trackContainerWidth / 2;
-        const itemCenterPoint = (winningIndex * itemWidth) + (itemWidth / 2);
+        const cssGap = 8;
+        const cssPaddingLeft = 10;
+        const itemCenterPoint = cssPaddingLeft + (winningIndex * (itemWidth + cssGap)) + (itemWidth / 2);
+        
         const randomOffset = Math.floor(Math.random() * (itemWidth - 10)) - ((itemWidth - 10) / 2);
         const finalPosition = (itemCenterPoint - centerOffset) + randomOffset;
 
